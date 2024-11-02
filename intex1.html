@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+
+    <script>
+        function CalculateGPA() {
+            let grades = [
+                parseFloat(document.getElementById("subject1").value),
+                parseFloat(document.getElementById("subject2").value),
+                parseFloat(document.getElementById("subject3").value),
+                parseFloat(document.getElementById("subject4").value),
+                parseFloat(document.getElementById("subject5").value),
+        ]
+            let gpasum= 0;
+            let totalsubject = grades.length;
+
+            grades.foreach ( grade =>{
+                if (grade >=90); {
+                    gpasum += 4.0;
+                }elseif (grade >=80);{
+                        gpasum += 3.0;
+                 }elseif (grade>=70);{
+                     gpasum +=2.0 ;
+                 } elseif (grade>=60);{
+                     gpasum +=1.0 ;
+                }  else { 
+                    gpasum +=0.0; 
+                }
+            });
+            let finalgpa = gpasum / totalsubject;
+            let resultmessage = "Your GPA is: $ {finalGPA.tofixed(2)}. " ;
+            if (finalGPA >= 2.0) {
+                resultmessage+= "You have passed";
+            } else {
+                resultmessage+= "You have failed";
+            }
+            document.getElementById("result").innerHTML=resultmessage;
+        }
+    </script>
+</head>
+<body>
+    <h1><b>GPA Calculator<b><h1>
+        <p>Enter your grades out of 100 for the following subjects</p>
+        <label for="subject1"> Subject 1:</label>
+        <input type="number" id= "subject1" min=0 max=100><br><br>
+
+        <label for="subject2"> Subject 2:</label>
+        <input type="number" id= "subject1" min=0 max=100><br><br>
+
+        <label for="subject3"> Subject 3:</label>
+        <input type="number" id= "subject1" min=0 max=100><br><br>
+
+        <label for="subject4"> Subject 4:</label>
+        <input type="number" id= "subject1" min=0 max=100><br><br>
+
+        <label for="subject5"> Subject 5:</label>
+        <input type="number" id= "subject1" min=0 max=100><br><br>
+
+
+        <button>Calculate GPA</button>
+
+        <p id="result"></p>
+
+
+</body>
+</html>
